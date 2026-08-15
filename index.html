@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>63 部教育動畫連結總覽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#234B3F;        /* 黑板墨綠 */
+    --board-deep:#18352C;
+    --chalk:#F4EFE4;        /* 粉筆白 */
+    --paper:#F7F5EF;        /* 紙張底色 */
+    --ink:#26302B;
+    --tag-class:#2D5DA1;    /* 班級經營：靛藍 */
+    --tag-parent:#A34E63;   /* 親職教育：梅紅 */
+    --tag-other:#6E6A5E;    /* 其他：暖灰 */
+    --line:#DDD6C6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Noto Sans TC",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  a{color:inherit}
+
+  /* ── 黑板式頁首 ── */
+  header{
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(255,255,255,.06), transparent 55%),
+      linear-gradient(160deg, var(--board), var(--board-deep));
+    color:var(--chalk);
+    padding:56px 24px 44px;
+    border-bottom:10px solid #B98A4E; /* 木質板框 */
+  }
+  .head-inner{max-width:1080px;margin:0 auto}
+  .eyebrow{
+    font-size:.85rem;letter-spacing:.35em;opacity:.75;
+    text-transform:uppercase;margin-bottom:14px;
+  }
+  h1{
+    font-family:"Noto Serif TC",serif;font-weight:900;
+    font-size:clamp(1.8rem,4.5vw,3rem);
+    letter-spacing:.06em;
+  }
+  h1 .num{
+    display:inline-block;
+    border-bottom:4px dashed rgba(244,239,228,.5);
+    padding:0 .1em .05em;
+  }
+  .head-sub{margin-top:12px;font-size:.98rem;opacity:.85;max-width:640px}
+
+  /* ── 工具列 ── */
+  .toolbar{
+    max-width:1080px;margin:-26px auto 0;padding:0 24px;
+    display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+  }
+  .search{
+    flex:1 1 260px;
+    background:#fff;border:1.5px solid var(--line);border-radius:10px;
+    padding:12px 16px;font-size:1rem;font-family:inherit;
+    box-shadow:0 4px 14px rgba(35,75,63,.10);
+  }
+  .search:focus{outline:3px solid rgba(45,93,161,.35);border-color:var(--tag-class)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    border:1.5px solid var(--line);background:#fff;border-radius:999px;
+    padding:8px 16px;font-size:.9rem;font-family:inherit;cursor:pointer;
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  .chip:hover{border-color:var(--board)}
+  .chip:focus-visible{outline:3px solid rgba(45,93,161,.4)}
+  .chip.on{background:var(--board);color:var(--chalk);border-color:var(--board)}
+
+  .count{
+    max-width:1080px;margin:18px auto 0;padding:0 24px;
+    font-size:.88rem;color:#6E6A5E;
+  }
+
+  /* ── 卡片清單 ── */
+  main{max-width:1080px;margin:14px auto 60px;padding:0 24px;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:18px 18px 16px;display:flex;flex-direction:column;gap:10px;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(35,75,63,.12)}
+  .card-top{display:flex;align-items:baseline;gap:10px}
+  .no{
+    font-family:"Noto Serif TC",serif;font-weight:700;
+    font-size:1.05rem;color:var(--board);
+    min-width:2.2em;
+  }
+  .title{
+    font-weight:700;font-size:1.02rem;line-height:1.45;
+  }
+  .note{font-size:.85rem;color:#6E6A5E}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+  .tag{
+    font-size:.75rem;color:#fff;border-radius:6px;padding:2px 8px;letter-spacing:.02em;
+  }
+  .tag.c{background:var(--tag-class)}
+  .tag.p{background:var(--tag-parent)}
+  .tag.o{background:var(--tag-other)}
+  .watch{
+    margin-top:4px;align-self:flex-start;
+    display:inline-flex;align-items:center;gap:6px;
+    text-decoration:none;font-weight:700;font-size:.9rem;
+    color:var(--board);border-bottom:2px solid rgba(35,75,63,.35);
+    padding-bottom:1px;
+  }
+  .watch:hover{color:var(--tag-class);border-color:var(--tag-class)}
+  .watch:focus-visible{outline:3px solid rgba(45,93,161,.4);border-radius:4px}
+  .watch svg{width:16px;height:16px;fill:#C4302B}
+
+  .empty{
+    grid-column:1/-1;text-align:center;color:#6E6A5E;
+    padding:60px 0;font-size:.95rem;
+  }
+
+  footer{
+    text-align:center;font-size:.82rem;color:#8B867A;
+    padding:0 24px 40px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .card, .chip{transition:none}
+    .card:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <div class="eyebrow">師資培育・案例動畫資源</div>
+    <h1><span class="num">63</span> 部教育動畫連結總覽</h1>
+    <p class="head-sub">涵蓋班級經營、親職教育與親師合作等主題之案例動畫，點選「觀看影片」即可另開 YouTube 觀賞。可用關鍵字搜尋或依主題篩選。</p>
+  </div>
+</header>
+
+<div class="toolbar">
+  <input class="search" id="q" type="search" placeholder="搜尋片名或關鍵字，例如：霸凌、聯絡簿、師生關係…" aria-label="搜尋動畫">
+  <div class="chips" role="group" aria-label="主題篩選">
+    <button class="chip on" data-cat="all">全部</button>
+    <button class="chip" data-cat="c">班級經營</button>
+    <button class="chip" data-cat="p">親職教育與親師合作</button>
+    <button class="chip" data-cat="o">其他主題</button>
+  </div>
+</div>
+
+<p class="count" id="count"></p>
+
+<main id="list" aria-live="polite"></main>
+
+<footer>影片皆連結至 YouTube 原始頁面．適用於師資培育課程之案例討論與親師溝通演練</footer>
+
+<script>
+const DATA=[
+{n:1,t:"學生不認錯，老師怎麼辦？",u:"https://youtu.be/fMKh8xASz-k",c:["c"],note:"現實治療理論・玩樂需求・異性交往"},
+{n:2,t:"學生怕當告密者",u:"https://youtu.be/Ee67B6onTrc",c:["c"],note:"師生關係"},
+{n:3,t:"學生被排擠，怎麼辦？",u:"https://youtu.be/gYwkJG21oMI",c:["c"],note:"校園霸凌"},
+{n:4,t:"瞭解特殊學生需求，班級氣氛融洽",u:"https://youtu.be/x_rt5_ExEdY",c:["p"],note:"融合教育"},
+{n:5,t:"學生作息顛倒上課睡覺",u:"https://youtu.be/5G1NRDmvTio",c:["c","p"],note:""},
+{n:6,t:"擔心孩子交到壞朋友怎麼辦？",u:"https://youtu.be/Ko1277dZDDM",c:["p"],note:"親師合作事項・同儕關係"},
+{n:7,t:"學生愛爭辯，老師怎麼辦？",u:"https://youtu.be/9AHwUBy1mKc",c:["c"],note:"師生關係・德瑞克斯理論"},
+{n:8,t:"該用菜瓜布還是馬桶刷？",u:"https://youtu.be/HI0XaQhFjk8",c:["c"],note:"師生關係・整潔工作"},
+{n:9,t:"培養學生有禮貌，從打招呼開始",u:"https://youtu.be/_vimS9IS2gk",c:["p"],note:"聯絡簿"},
+{n:10,t:"誤會學生了，老師怎麼辦？",u:"https://youtu.be/24G-IYNZ4E0",c:["c"],note:"整潔工作・師生關係"},
+{n:11,t:"班上設線民，不如師生多互動",u:"https://youtu.be/7DzcGZpnExY",c:["c"],note:"師生關係"},
+{n:12,t:"都是LINE惹的禍？",u:"https://youtu.be/vH1EsP1XCR0",c:["p"],note:"LINE 的使用"},
+{n:13,t:"都是新冠肺炎惹的禍",u:"https://youtu.be/g7HBRKJgrpM",c:["p"],note:""},
+{n:14,t:"風紀股長的兩難",u:"https://youtu.be/rgmjLkpL9Rg",c:["c"],note:"學生自治自律"},
+{n:15,t:"學生在FB社團起衝突，老師怎麼辦？",u:"https://youtu.be/mqSA3f0ZBig",c:["o"],note:"學生網路社群互動・老師介入程度"},
+{n:16,t:"爭當小市長候選人",u:"https://youtu.be/uWYm58ZKJZ0",c:["c"],note:"學生自治自律"},
+{n:17,t:"測試學生誠實指數，應慎選方法",u:"https://youtu.be/x3DpyOUx7J8",c:["o"],note:""},
+{n:18,t:"臨時接手導師班，心態要調整",u:"https://youtu.be/xuJTuloOYvY",c:["o"],note:""},
+{n:19,t:"玫瑰少年的反應",u:"https://youtu.be/pEkO6A8i6jg",c:["c"],note:"親師溝通演練用"},
+{n:20,t:"天氣熱了，教室該不該開冷氣？",u:"https://youtu.be/Le1wFUHxo1I",c:["o"],note:""},
+{n:21,t:"小一新生頻出錯，親師齊督促",u:"https://youtu.be/TILYb8QLiMQ",c:["o"],note:""},
+{n:22,t:"從偏鄉到都市，考驗學生適應力",u:"https://youtu.be/qzcT6gY3H-0",c:["o"],note:""},
+{n:23,t:"學生脫褲嬉戲，老師怎麼辦？",u:"https://youtu.be/ghc2Ih9itqA",c:["o"],note:""},
+{n:24,t:"導師手上的記過單",u:"https://youtu.be/Zr99LvwEDNo",c:["c"],note:"教師同事關係"},
+{n:25,t:"轉學生無法融入班上，怎麼辦？",u:"https://youtu.be/WJeIL06ChiE",c:["o"],note:""},
+{n:26,t:"學生助學金，教師代管妥當嗎？",u:"https://youtu.be/3_k8h_Q3VOs",c:["o"],note:""},
+{n:27,t:"集體作業抄襲，先找原因再懲罰",u:"https://youtu.be/SXKP6BpYzA8",c:["o"],note:""},
+{n:28,t:"選幹部，師生不同調",u:"https://youtu.be/s8C2WHuvw2g",c:["o"],note:""},
+{n:29,t:"寄不出去的母親節卡片",u:"https://youtu.be/18vYOZv1y6k",c:["o"],note:""},
+{n:30,t:"營造班級讀書風氣，教師傷腦筋",u:"https://youtu.be/-vJBgn9quxk",c:["o"],note:""},
+{n:31,t:"炸了開來的壓力鍋",u:"https://youtu.be/3UIryUA_2ms",c:["o"],note:""},
+{n:32,t:"會飛的花枝丸",u:"https://youtu.be/c08PNOC2Ktw",c:["o"],note:""},
+{n:33,t:"拒絕檢定的三人組",u:"https://youtu.be/WYybE2hBWAg",c:["o"],note:""},
+{n:34,t:"時時刷存在感的孩子",u:"https://youtu.be/U2k2o6gI_E8",c:["o"],note:""},
+{n:35,t:"英語戲劇換角風波",u:"https://youtu.be/iAR_H0pn0ww",c:["o"],note:""},
+{n:36,t:"忍不住的怒氣",u:"https://youtu.be/e8bvcDUomrk",c:["o"],note:""},
+{n:37,t:"躲在桌下玩電腦的小寶",u:"https://youtu.be/QgjMCXRdQsQ",c:["o"],note:""},
+{n:38,t:"奈奈的無奈",u:"https://youtu.be/eeHdTSKfjO8",c:["o"],note:""},
+{n:39,t:"逆轉學生轉學危機",u:"https://youtu.be/PmdslKRnZV4",c:["o"],note:""},
+{n:40,t:"幫助好動孩子變好學",u:"https://youtu.be/vhWWbgLKwVM",c:["o"],note:""},
+{n:41,t:"戀愛行不行？",u:"https://youtu.be/QkfK0sketPo",c:["o"],note:""},
+{n:42,t:"實習試教秩序亂糟糟",u:"https://youtu.be/QcXfJrUw9ak",c:["o"],note:""},
+{n:43,t:"傷腦筋的分組課",u:"https://youtu.be/kUNR6u_CDeM",c:["o"],note:""},
+{n:44,t:"我的孫子一定被霸凌",u:"https://youtu.be/QRNW-lxyoo0",c:["o"],note:""},
+{n:45,t:"體育班教師的哀愁",u:"https://youtu.be/IUmrsDoD2Sc",c:["o"],note:""},
+{n:46,t:"我的孩子拿BB槍是自衛",u:"https://youtu.be/LExGECPEl2w",c:["o"],note:"有警語"},
+{n:47,t:"從女廁出來的阿西",u:"https://youtu.be/siNRrYr6FQ4",c:["o"],note:""},
+{n:48,t:"阿威丟蛋",u:"https://youtu.be/qMTym9gV4QU",c:["o"],note:""},
+{n:49,t:"小五學生的地下經濟",u:"https://youtu.be/ZjNISqL0HCU",c:["o"],note:""},
+{n:50,t:"亦師亦友？",u:"https://youtu.be/AnlBtFzlTwY",c:["o"],note:""},
+{n:51,t:"不願出門的中輟少女",u:"https://youtu.be/l-ImdDNXl4Y",c:["o"],note:""},
+{n:52,t:"訂班規 力求親師生三贏",u:"https://youtu.be/dkHDu1TD8TM",c:["o"],note:""},
+{n:53,t:"我的孩子在學校受傷了",u:"https://youtu.be/Jj5W_u98a8U",c:["o"],note:""},
+{n:54,t:"爸爸不讓我上學習扶助課程",u:"https://youtu.be/oEaXKJyW9yk",c:["o"],note:""},
+{n:55,t:"電話那頭崩潰痛哭的媽媽",u:"https://youtu.be/Eb7d5Syw-2g",c:["o"],note:""},
+{n:56,t:"越區就讀的小明",u:"https://youtu.be/fLisTYfiNbk",c:["o"],note:""},
+{n:57,t:"好玩還是霸凌？",u:"https://youtu.be/NzTNp64J1LM",c:["o"],note:""},
+{n:58,t:"以後叫楊安安",u:"https://youtu.be/EwaNMloMq5E",c:["o"],note:""},
+{n:59,t:"事情的發展怎麼會這樣",u:"https://youtu.be/CUUJsNiEED4",c:["o"],note:""},
+{n:60,t:"在家玩著小鳥和蝴蝶吸尿",u:"https://youtu.be/ow7GInXo7Ms",c:["o"],note:""},
+{n:61,t:"小組內的角色安排及任務分工",u:"https://youtu.be/eWO-EmMSsHM",c:["o"],note:""},
+{n:62,t:"配對輪流分享",u:"https://youtu.be/CsvBdtaAa_Y",c:["o"],note:""},
+{n:63,t:"配對輪流協助",u:"https://youtu.be/OVeLQblMOPE",c:["o"],note:""}
+];
+
+const CAT_NAME={c:"班級經營",p:"親職教育與親師合作",o:"其他主題"};
+const list=document.getElementById("list");
+const countEl=document.getElementById("count");
+const q=document.getElementById("q");
+let cat="all";
+
+function render(){
+  const kw=q.value.trim().toLowerCase();
+  const items=DATA.filter(d=>{
+    const okCat = cat==="all" || d.c.includes(cat);
+    const text=(d.t+d.note).toLowerCase();
+    const okKw = !kw || text.includes(kw);
+    return okCat && okKw;
+  });
+  countEl.textContent=`顯示 ${items.length} / ${DATA.length} 部`;
+  if(!items.length){
+    list.innerHTML=`<div class="empty">找不到符合的動畫，請改用其他關鍵字或切換主題。</div>`;
+    return;
+  }
+  list.innerHTML=items.map(d=>`
+    <article class="card">
+      <div class="card-top">
+        <span class="no">${String(d.n).padStart(2,"0")}</span>
+        <span class="title">${d.t}</span>
+      </div>
+      ${d.note?`<div class="note">${d.note}</div>`:""}
+      <div class="tags">${d.c.map(x=>`<span class="tag ${x}">${CAT_NAME[x]}</span>`).join("")}</div>
+      <a class="watch" href="${d.u}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+        觀看影片
+      </a>
+    </article>`).join("");
+}
+
+q.addEventListener("input",render);
+document.querySelectorAll(".chip").forEach(b=>{
+  b.addEventListener("click",()=>{
+    document.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on");
+    cat=b.dataset.cat;
+    render();
+  });
+});
+render();
+</script>
+</body>
+</html>
